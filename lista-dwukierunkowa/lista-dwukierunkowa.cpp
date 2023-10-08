@@ -20,12 +20,6 @@ int main()
     lista.wyczyscListe();
    
     lista.wyswietlListe();
-
-    std::cout << "Tekst" << std::endl;
-	int* p_int = new int;
-	*p_int = 5;
-    
-	// nie usunięty p_int
     return 0;
 }
 
