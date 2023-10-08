@@ -68,11 +68,6 @@ public:
      * Usuniêcie wszystkich elementów z listy.
      */
     void wyczyscListe();
-
-    inline void func(int i)
-    {
-
-    }
     
     
 private:
