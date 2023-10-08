@@ -92,6 +92,49 @@ void Lista::dodajPodIndex(int index, int wartosc)
 	liczbaElementow++;
 }
 
+void Lista::usunZPoczatku()
+{
+	if (liczbaElementow == 0)
+	{
+		std::cout << "lista jest pusta\n";
+		return;
+	}
+	Element* tmp = pierwszy;
+	pierwszy = pierwszy->nastepny;
+    if (pierwszy != nullptr)
+    {
+        pierwszy->poprzedni = nullptr;
+    }
+    else
+    {
+        ostatni = nullptr;
+    }
+    delete tmp;
+	liczbaElementow--;
+}
+
+void Lista::usunZKonca()
+{
+	if (liczbaElementow == 0)
+	{
+		std::cout << "lista jest pusta\n";
+		return;
+	}
+	
+	Element* tmp = ostatni;
+    ostatni = tmp->poprzedni;
+    if (ostatni != nullptr)
+    {
+        ostatni->nastepny = nullptr;
+    }
+    else
+    {
+        pierwszy = nullptr;
+    }
+    delete tmp;
+	liczbaElementow--;
+}
+
 void Lista::wyswietlListe()
 {
     Element* elem = pierwszy;
@@ -99,6 +142,17 @@ void Lista::wyswietlListe()
 	{
 		std::cout << elem->wartosc << " ";
 		elem = elem->nastepny;
+	}
+	std::cout << "\n";
+}
+
+void Lista::wyswietlListeOdTylu()
+{
+	Element* elem = ostatni;
+	while (elem != nullptr)
+	{
+		std::cout << elem->wartosc << " ";
+        elem = elem->poprzedni;
 	}
 	std::cout << "\n";
 }

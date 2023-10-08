@@ -8,19 +8,43 @@ public:
     ~Lista();
 
     /**
-    * Dodanie elementu na pocz¹tek listy.
-    * @param wartosc Wartoœæ, która ma zostaæ dodana do listy.
-    */
+     * Dodanie elementu na pocz¹tek listy.
+     * @param wartosc Wartoœæ, która ma zostaæ dodana do listy.
+     */
     void dodajNaPoczatek(int wartosc);
+    
     /**
-    * Dodanie elementu na koniec listy.
-    * @param wartosc Wartoœæ, która ma zostaæ dodana do listy.
-    */
+     * Dodanie elementu na koniec listy.
+     * @param wartosc Wartoœæ, która ma zostaæ dodana do listy.
+     */
     void dodajNaKoniec(int wartosc);
+    
+    /**
+     * Dodanie elementu pod index.
+     * @param index Numer indeksu pod którym zostanie wstawiony nowy element.
+     * @param wartosc Wartoœæ, która ma zostaæ dodana do listy.
+     */
+    void dodajPodIndex(int index, int wartosc);
 
-	void dodajPodIndex(int index, int wartosc);
+    /**
+     * Usuniêcie pierwszego elementu z listy.
+     */
+    void usunZPoczatku();
 
+    /**
+     * Usuniêcie ostatniego elementu z listy.
+     */
+    void usunZKonca();
+
+    /**
+     * Wyœwietlenie listy od pocz¹tku.
+     */
     void wyswietlListe();
+    
+    /**
+     * Wyœwietlenie listy od koñca.
+     */
+    void wyswietlListeOdTylu();
     
     
 private:
