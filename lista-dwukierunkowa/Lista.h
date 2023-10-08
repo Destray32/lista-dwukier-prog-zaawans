@@ -37,6 +37,12 @@ public:
     void usunZKonca();
 
     /**
+     * Usuniêcie elementu pod index.
+     * @param index Numer indeksu elementu, który ma zostaæ usuniêty.
+     */
+    void usunIndeks(int index);
+
+    /**
      * Wyœwietlenie listy od pocz¹tku.
      */
     void wyswietlListe();
@@ -45,6 +51,23 @@ public:
      * Wyœwietlenie listy od koñca.
      */
     void wyswietlListeOdTylu();
+
+    /**
+     * Wyœwietlenie kolejnego elementu listy po elemencie o zadanym indeksie.
+     * @param index Numer indeksu elementu, po którym ma zostaæ wyœwietlony kolejny element.
+     */
+    void wyswietlNastepny(int index);
+
+    /**
+     * Wyœwietlenie poprzedniego elementu listy przed elementem o zadanym indeksie.
+     * @param index Numer indeksu elementu, przed którym ma zostaæ wyœwietlony poprzedni element.
+     */
+    void wyswietlPoprzedni(int index);
+
+    /**
+     * Usuniêcie wszystkich elementów z listy.
+     */
+    void wyczyscListe();
     
     
 private:

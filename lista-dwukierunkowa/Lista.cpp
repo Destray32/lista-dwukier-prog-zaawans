@@ -135,6 +135,36 @@ void Lista::usunZKonca()
 	liczbaElementow--;
 }
 
+
+void Lista::usunIndeks(int index)
+{
+	if (index < 0 || index >= liczbaElementow)
+	{
+		std::cout << "indeks nieprawid³owy\n";
+		return;
+	}
+	if (index == 0)
+	{
+		usunZPoczatku();
+		return;
+	}
+	if (index == liczbaElementow - 1)
+	{
+		usunZKonca();
+		return;
+	}
+	Element* tmp = pierwszy;
+	for (int i = 0; i < index - 1; i++)
+	{
+		tmp = tmp->nastepny;
+	}
+	Element* tmp2 = tmp->nastepny;
+	tmp->nastepny = tmp2->nastepny;
+	tmp2->nastepny->poprzedni = tmp;
+	delete tmp2;
+	liczbaElementow--;
+}
+
 void Lista::wyswietlListe()
 {
     Element* elem = pierwszy;
@@ -155,4 +185,60 @@ void Lista::wyswietlListeOdTylu()
         elem = elem->poprzedni;
 	}
 	std::cout << "\n";
+}
+
+void Lista::wyswietlNastepny(int index)
+{
+	if (liczbaElementow == 0)
+	{
+		std::cout << "lista jest pusta\n";
+		return;
+	}
+	
+	Element* tmp = pierwszy;
+	for (int i = 0; i < index; i++)
+	{
+		tmp = tmp->nastepny;
+	}
+	if (tmp->nastepny == nullptr)
+	{
+		std::cout << "nie ma nastêpnego elementu\n";
+		return;
+	}
+	std::cout << tmp->nastepny->wartosc << "\n";
+}
+
+void Lista::wyswietlPoprzedni(int index)
+{
+	if (liczbaElementow == 0)
+	{
+		std::cout << "lista jest pusta\n";
+		return;
+	}
+
+	Element* tmp = pierwszy;
+	for (int i = 0; i < index; i++)
+	{
+		tmp = tmp->nastepny;
+	}
+	if (tmp->poprzedni == nullptr)
+	{
+		std::cout << "nie ma poprzedniego elementu\n";
+		return;
+	}
+	std::cout << tmp->poprzedni->wartosc << "\n";
+}
+
+void Lista::wyczyscListe()
+{
+	Element* tmp = pierwszy;
+	while (tmp != nullptr)
+	{
+		Element* tmp2 = tmp;
+		tmp = tmp->nastepny;
+		delete tmp2;
+	}
+	pierwszy = nullptr;
+	ostatni = nullptr;
+	liczbaElementow = 0;
 }
